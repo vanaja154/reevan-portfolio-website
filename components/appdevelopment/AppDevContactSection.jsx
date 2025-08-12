@@ -1,5 +1,6 @@
 "use client";
 
+import HighlightedText from "@/utils/HighlightedText";
 import { Mail, Phone, MessageSquare } from "lucide-react";
 import React from "react";
 
@@ -23,7 +24,7 @@ export default function AppDevContactSection() {
           <div>
             <p className="text-[#ffb199] uppercase font-semibold mb-1">Inquiry</p>
             <h2 className="text-4xl font-extrabold">
-              Let’s Get in <span className="underline decoration-white/60">Touch</span>
+              Let’s Get in <HighlightedText>Touch</HighlightedText>
             </h2>
           </div>
 

@@ -6,7 +6,7 @@ import { Users, Award, Smartphone } from "lucide-react";
 
 export default function AppDevelopmentHero() {
   return (
-    <section className="flex flex-col md:flex-row justify-between items-center gap-8 p-8 md:p-16">
+    <section className="flex mt-10 flex-col md:flex-row justify-between items-center gap-8 p-8 md:p-16">
       {/* Left Section */}
       <div className="w-full md:w-1/2">
         <h2 className="text-4xl font-bold mb-4">Top Mobile App Development Company in India</h2>

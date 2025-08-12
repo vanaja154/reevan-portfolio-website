@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function WebHeroSection() {
   return (
-    <section className="bg-white py-10 md:py-20">
+    <section className="bg-white py-20 md:py-20 ">
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
         
         {/* Left Content */}

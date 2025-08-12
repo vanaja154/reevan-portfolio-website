@@ -1,5 +1,7 @@
 "use client";
 
+import HighlightedText from "@/utils/HighlightedText";
+
 export default function Technologies() {
   const techs = [
     { name: "iOS", icon: "/images/apple.png" },
@@ -18,11 +20,7 @@ export default function Technologies() {
       <div className="container mx-auto px-4">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
-          <span className="relative inline-block">
-            <span className="relative z-10">Technologies</span>
-            <span className="absolute bottom-1 left-0 w-full h-2 bg-[#ffc5b2] z-0 rounded-sm"></span>
-          </span>{" "}
-          we work with
+          <HighlightedText>Technologies</HighlightedText> we work with
         </h2>
 
         {/* First Row: Responsive Grid */}

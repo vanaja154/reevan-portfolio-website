@@ -1,12 +1,14 @@
 "use client";
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const navItems = [
   {
     title: "HOME",
-    dropdown: [
+    type: "mega",
+    ctaTitle: "We Will Shape Your Brand With Our Digital Solutions",
+    sections: [
       {
         title: "Multi-Page Demo",
         links: [
@@ -15,179 +17,141 @@ const navItems = [
           { title: "Digital Agency", url: "/digital-agency" },
           { title: "Graphic Design", url: "/graphic-design" },
           { title: "Lead Generation", url: "/lead-generation" },
-          { title: "Personal Portfolio", url: "/personal-portfolio" },
-          { title: "Web Design", url: "/web-design" },
-        ],
+          { title: "Personal Portfolio", url: "/" },
+          { title: "Web Design", url: "/web-design" }
+        ]
       },
       {
         title: "One-Page Demo",
         links: [
-          { title: "App Development", url: "/app-development-one" },
-          { title: "Creative Agency", url: "/creative-agency-one" },
-          { title: "Digital Agency", url: "/digital-agency-one" },
-          { title: "Graphic Design", url: "/graphic-design-one" },
-          { title: "Lead Generation", url: "/lead-generation-one" },
-          { title: "Personal Portfolio", url: "/personal-portfolio-one" },
-          { title: "Web Design", url: "/web-design-one" },
-        ],
+          { title: "App Development", url: "/app-development" },
+          { title: "Creative Agency", url: "/creative-agency" },
+          { title: "Digital Agency", url: "/digital-agency" },
+          { title: "Graphic Design", url: "/graphic-design" },
+          { title: "Lead Generation", url: "/lead-generation" },
+          { title: "Personal Portfolio", url: "/" },
+          { title: "Web Design", url: "/web-design" }
+        ]
       },
       {
         title: "Coming Soon Demo",
         links: [
-          { title: "Corporate Business", url: "/corporate-business" },
-          { title: "Product Landing Page", url: "/product-landing" },
-          { title: "Photography", url: "/photography" },
-          { title: "Domain & Hosting", url: "/domain-hosting" },
-          { title: "E-commerce", url: "/e-commerce" },
-          { title: "Business Development", url: "/business-development" },
-        ],
-      },
-    ],
+          { title: "Corporate Business", url: "/" },
+          { title: "Product Landing Page", url: "/" },
+          { title: "Photography", url: "/" },
+          { title: "Domain & Hosting", url: "/" },
+          { title: "E-commerce", url: "/" },
+          { title: "Business Development", url: "/" }
+        ]
+      }
+    ]
   },
   {
     title: "PAGES",
-    dropdown: [
-      {
-        title: "",
-        links: [
-          { title: "About Us", url: "/about-us" },
-          { title: "About Us - 2", url: "/about-us-2" },
-          { title: "Career", url: "/career" },
-          { title: "Career - 2", url: "/career-2" },
-          { title: "Case Study", url: "/case-study" },
-        ],
-      },
-      {
-        title: "",
-        links: [
-          { title: "Case Study Details", url: "/case-study-details" },
-          { title: "Our Core Values", url: "/core-values" },
-          { title: "Contact Us", url: "/contact-us" },
-          { title: "Contact Us - 2", url: "/contact-us-2" },
-          { title: "Our Team", url: "/our-team" },
-        ],
-      },
-      {
-        title: "",
-        links: [
-          { title: "Our Team - 2", url: "/our-team-2" },
-          { title: "Pricing", url: "/pricing" },
-          { title: "Pricing - 2", url: "/pricing-2" },
-          { title: "Service", url: "/service" },
-          { title: "Service - 2", url: "/service-2" },
-          { title: "Service Details", url: "/service-details" },
-          { title: "Service Details - 2", url: "/service-details-2" },
-          { title: "Why Choose Us", url: "/why-choose-us" },
-        ],
-      },
-    ],
+    type: "pages",
+    ctaTitle: "Creative, Premium & Scalable Solutions For App and Web Development",
+    links: [
+      { title: "About Us", url: "/about" },
+      { title: "Career", url: "/career" },
+      { title: "Case Study", url: "/casestudy" },
+      { title: "Case Study Details", url: "/casestudydetails" },
+      { title: "Our Core Values", url: "/ourcore" },
+      { title: "Contact Us", url: "/contact" },
+      { title: "Contact Us-2", url: "/contact2" },
+      { title: "Our Team", url: "/ourteam" },
+      { title: "Our Team-2", url: "/ourteam2" },
+      { title: "Pricing", url: "/pricing" },
+      { title: "Pricing-2", url: "/pricing2" },
+      { title: "Service", url: "/services" },
+      { title: "Service-2", url: "/service2" },
+      { title: "Service Details", url: "/servicedetails" },
+      { title: "Service Details-2", url: "/servicedetails2" },
+      { title: "Why Choose Us", url: "/why-choose-us" }
+    ]
   },
   {
     title: "PORTFOLIO",
-    dropdown: [
-      {
-        title: "",
-        links: [
-          { title: "Portfolio Modern", url: "/portfolio-modern" },
-          { title: "Portfolio 3 Grid", url: "/portfolio-3-grid" },
-          { title: "Portfolio 4 Grid", url: "/portfolio-4-grid" },
-          { title: "Portfolio Details", url: "/portfolio-details" },
-          { title: "Portfolio Details - 2", url: "/portfolio-details-2" },
-        ],
-      },
-    ],
+    type: "list",
+    links: [
+      { title: "Portfolio Modern", url: "/portfolio-modern" },
+      { title: "Portfolio 3 Grid", url: "/portfolio-2" },
+      { title: "Portfolio 4 Grid", url: "/portfolio-2" },
+      { title: "Portfolio Details", url: "/portfolio-details" },
+      { title: "Portfolio Details - 2", url: "/portfolio-details-2" }
+    ]
   },
   {
     title: "BLOGS",
-    dropdown: [
-      {
-        title: "",
-        links: [
-          { title: "Blog Page", url: "/blog-page" },
-          { title: "Blog Details", url: "/blog-details" },
-        ],
-      },
-    ],
+    type: "list",
+    links: [
+      { title: "Blog Page", url: "/blog" },
+      { title: "Blog Details", url: "/blogdetails" }
+    ]
   },
   {
     title: "CONTACT US",
-    dropdown: [
-      {
-        title: "",
-        links: [
-          { title: "Contact Us", url: "/contact-us" },
-          { title: "Contact Us - 2", url: "/contact-us-2" },
-        ],
-      },
-    ],
-  },
+    type: "list",
+    links: [
+      { title: "Contact Us", url: "/contact" },
+      { title: "Contact Us - 2", url: "/contact2" }
+    ]
+  }
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const handleDesktopClick = (index) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
-  };
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <header className="bg-[#ffffff99] shadow-sm fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
+    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <img src="/images/logo.png" alt="Logo" className="h-8" />
-        </div>
+        <Link href="/" className="flex items-center space-x-2">
+          <img src="/images/logo.png" alt="Logo" className="h-8 w-auto" />
+        </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
           {navItems.map((item, index) => (
-            <div key={index} className="relative cursor-pointer">
-              {/* Main link */}
-              <div
-                onClick={() => handleDesktopClick(index)}
-                className="flex items-center space-x-1 text-sm font-medium text-gray-900 hover:text-orange-500"
+            <div
+              key={index}
+              className="relative"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <span
+                className={`uppercase flex items-center cursor-pointer ${hoveredIndex === index ? "text-orange-600" : "text-black"
+                  }`}
               >
-                <span>{item.title}</span>
-                <span className="text-orange-500 text-[20px] leading-none">•</span>
-              </div>
+                {item.title}
+                <span className="ml-1 text-orange-600 text-xl leading-none">·</span>
+              </span>
 
               {/* Dropdown */}
-              {item.dropdown && activeDropdown === index && (
-                <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded p-6 flex space-x-8 z-50">
-                  {item.dropdown.map((section, sectionIndex) => (
-                    <div key={sectionIndex}>
-                      {section.title && (
-                        <h4 className="text-orange-500 text-base font-bold mb-2">
-                          {section.title}
-                        </h4>
-                      )}
-                      {section.links.map((link, linkIndex) => (
-                        <a
-                          key={linkIndex}
-                          href={link.url}
-                          className="block text-sm text-gray-700 hover:text-orange-500 transition py-1"
-                        >
-                          {link.title}
-                        </a>
-                      ))}
-                    </div>
-                  ))}
+              {hoveredIndex === index && (
+                <div
+                  className={`absolute top-full ${item.title === "HOME" || item.title === "PAGES"
+                    ? "left-0 w-screen"
+                    : "left-0"}`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <DropdownMenu item={item} />
                 </div>
               )}
+
             </div>
           ))}
         </nav>
 
-        {/* Request Quote Button */}
+        {/* Request Quote */}
         <div className="hidden md:block">
-          <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-full hover:bg-orange-500 hover:text-white transition">
+          <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-full hover:bg-orange-50">
             Request Quote
           </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-4">
+        <div className="md:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -198,49 +162,144 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
           {navItems.map((item, index) => (
-            <div key={index} className="space-y-2">
-              <div
-                className="flex items-center justify-between text-sm font-medium text-gray-900 cursor-pointer"
-                onClick={() =>
-                  setActiveDropdown(activeDropdown === index ? null : index)
-                }
-              >
-                <div className="flex items-center space-x-1">
-                  <span>{item.title}</span>
-                  <span className="text-orange-500 text-[10px] leading-none">•</span>
-                </div>
-              </div>
-
-              {item.dropdown && activeDropdown === index && (
-                <div className="pl-4 space-y-3">
-                  {item.dropdown.map((section, sectionIndex) => (
-                    <div key={sectionIndex}>
-                      {section.title && (
-                        <h4 className="text-orange-500 text-base font-bold mb-2">
-                          {section.title}
-                        </h4>
-                      )}
-                      {section.links.map((link, linkIndex) => (
-                        <a
-                          key={linkIndex}
-                          href={link.url}
-                          className="block text-sm text-gray-700 hover:text-orange-500 transition py-1"
-                        >
-                          {link.title}
-                        </a>
-                      ))}
-                    </div>
+            <div key={index}>
+              <div className="font-medium text-gray-900">{item.title}</div>
+              {item.links?.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.url}
+                  className="block pl-4 py-1 text-gray-700 hover:text-orange-600"
+                >
+                  {link.title}
+                </Link>
+              ))}
+              {item.sections?.map((sec, si) => (
+                <div key={si} className="pl-4">
+                  <div className="font-semibold text-orange-600">{sec.title}</div>
+                  {sec.links.map((link, li) => (
+                    <Link
+                      key={li}
+                      href={link.url}
+                      className="block pl-2 py-1 text-gray-700 hover:text-orange-600"
+                    >
+                      {link.title}
+                    </Link>
                   ))}
                 </div>
-              )}
+              ))}
             </div>
           ))}
-
-          <button className="w-full border border-orange-500 text-orange-500 px-4 py-2 rounded-full hover:bg-orange-500 hover:text-white transition">
-            Request Quote
-          </button>
         </div>
       )}
     </header>
+  );
+}
+
+function DropdownMenu({ item }) {
+  if (item.type === "mega") {
+    return (
+      <div className="bg-white lg:pl-0 shadow-lg border-t border-orange-600 lg:mt-7" style={{ minWidth: "110vw" }}>
+        <div className="max-w-7xl mx-auto px-8 py-10 grid grid-cols-8 gap-8 border-b border-gray-100">
+          <div className="col-span-2">
+            <p className="text-sm text-gray-500">Need a Website?</p>
+            <h3 className="text-2xl font-extrabold">{item.ctaTitle}</h3>
+            <button className="mt-6 px-6 py-2 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-50">
+              Request Quote →
+            </button>
+          </div>
+          <div className="col-span-6 flex gap-12">
+            {item.sections.map((sec, idx) => (
+              <div key={idx}>
+                <h4 className="font-semibold text-orange-600 border-b-2 border-orange-600 mb-4">
+                  {sec.title}
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  {sec.links.map((link, li) => (
+                    <li key={li}>
+                      <Link href={link.url} className="hover:text-orange-600">
+                        {link.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        <BottomBar />
+      </div>
+    );
+  }
+
+  if (item.type === "pages") {
+    const chunkSize = Math.ceil(item.links.length / 4);
+    const cols = [];
+    for (let i = 0; i < item.links.length; i += chunkSize) {
+      cols.push(item.links.slice(i, i + chunkSize));
+    }
+
+    return (
+      <div className="bg-white shadow-lg border-t border-orange-600 lg:mt-7" style={{ minWidth: "110vw" }}>
+        <div className="max-w-7xl mx-auto px-8 py-10 grid grid-cols-8 gap-8 border-b border-gray-100">
+          <div className="col-span-2">
+            <p className="text-sm text-gray-500">Need a Website?</p>
+            <h3 className="text-2xl font-extrabold">{item.ctaTitle}</h3>
+            <button className="mt-6 px-6 py-2 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-50">
+              Request Quote →
+            </button>
+          </div>
+          <div className="col-span-6 grid grid-cols-4 gap-6">
+            {cols.map((col, ci) => (
+              <ul key={ci} className="space-y-2 text-gray-700">
+                {col.map((link, li) => (
+                  <li key={li}>
+                    <Link href={link.url} className="hover:text-orange-600">
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+        <BottomBar />
+      </div>
+    );
+  }
+
+  if (item.type === "list") {
+    return (
+      <div className="lg:mt-7 bg-white shadow-lg border-t border-orange-600 rounded-lg min-w-[200px]">
+        <ul className="py-2 text-gray-700">
+          {item.links.map((link, li) => (
+            <li key={li}>
+              <Link href={link.url} className="block px-4 py-2 hover:bg-orange-50 cursor-pointer">
+                {link.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+function BottomBar() {
+  const contacts = [
+    { text: "reevan@abcd.com" },
+    { text: "+91 123 456 7890" },
+    { text: "+91 123 456 7890" },
+    { text: "Reevan.Skype" },
+    { text: "Why Choose Us" }
+  ];
+  return (
+    <div className="w-full bg-orange-50 px-8 py-4 flex max-w-7xl mx-auto justify-between text-gray-900">
+      {contacts.map((c, i) => (
+        <div key={i} className="flex items-center space-x-2">
+          <div className="rounded-full bg-white p-2 shadow-md"></div>
+          <span>{c.text}</span>
+        </div>
+      ))}
+    </div>
   );
 }

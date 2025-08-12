@@ -12,7 +12,11 @@ export default function SelectedWork() {
     if (!container) return;
     const box = container.children[index];
     if (box) {
-      box.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      box.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
       setCurrentIndex(index);
     }
   };
@@ -30,37 +34,17 @@ export default function SelectedWork() {
   };
 
   const cards = [
-    {
-      img: "/images/Design/book.jpg",
-      title: "Project Alpha",
-      desc: "Creative branding design for startup.",
-    },
-    {
-      img: "/images/Design/card.jpg",
-      title: "E-Commerce UI",
-      desc: "Modern e-commerce interface design.",
-    },
-    {
-      img: "/images/Design/book.jpg",
-      title: "Portfolio Website",
-      desc: "Personal portfolio for designer.",
-    },
-    {
-      img: "/images/Design/card.jpg",
-      title: "Business Dashboard",
-      desc: "Clean dashboard for analytics.",
-    },
-    {
-      img: "/images/Design/book.jpg",
-      title: "Mobile App UI",
-      desc: "User-friendly mobile UI layout.",
-    },
+    { img: "/images/Design/book.jpg", title: "Project Alpha", desc: "Creative branding design for startup." },
+    { img: "/images/Design/card.jpg", title: "E-Commerce UI", desc: "Modern e-commerce interface design." },
+    { img: "/images/Design/book.jpg", title: "Portfolio Website", desc: "Personal portfolio for designer." },
+    { img: "/images/Design/card.jpg", title: "Business Dashboard", desc: "Clean dashboard for analytics." },
+    { img: "/images/Design/book.jpg", title: "Mobile App UI", desc: "User-friendly mobile UI layout." },
   ];
 
   return (
-    <section className="relative w-full px-6 md:px-20 py-16 bg-[#F6F3EB]">
-      {/* LEFT ALIGNED Heading Like Image */}
-      <h2 className="text-[32px] md:text-[40px] font-bold text-[#151515] mb-10">
+    <section className="relative w-full px-4 sm:px-6 md:px-12 lg:px-20 py-12 bg-[#F6F3EB]">
+      {/* Heading */}
+      <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-bold text-[#151515] mb-8">
         Our Selected Work
       </h2>
 
@@ -73,7 +57,7 @@ export default function SelectedWork() {
           <ArrowLeft className="w-5 h-5" />
         </button>
 
-        {/* Scrollable Cards Container */}
+        {/* Scrollable Cards */}
         <div
           ref={containerRef}
           className="flex gap-6 overflow-hidden scroll-smooth"
@@ -81,17 +65,17 @@ export default function SelectedWork() {
           {cards.map((item, idx) => (
             <div
               key={idx}
-              className="w-[32%] shrink-0 bg-white rounded-lg shadow-md"
+              className="shrink-0 bg-white rounded-lg shadow-md w-[85%] sm:w-[48%] md:w-[32%] lg:w-[30%]"
             >
               <Image
                 src={item.img}
                 alt={item.title}
                 width={400}
                 height={250}
-                className="rounded-t-lg object-cover w-full h-[250px]"
+                className="rounded-t-lg object-cover w-full h-[200px] sm:h-[220px] md:h-[250px]"
               />
               <div className="p-4">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <h3 className="text-base sm:text-lg font-semibold">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
             </div>

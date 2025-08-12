@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
+import HighlightedText from "@/utils/HighlightedText";
 
 const sampleData = [
   {
@@ -71,7 +72,7 @@ export default function FinestWorkSection() {
       <div className="text-center mb-10">
         <p className="text-sm text-[#ff5b2e] font-medium">QUALITY WORK</p>
         <h2 className="text-3xl md:text-4xl font-semibold">
-          Some of our <span className="font-bold">Finest</span> Work
+          Some of our <HighlightedText className="font-bold">Finest</HighlightedText> Work
         </h2>
       </div>
 

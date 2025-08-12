@@ -48,16 +48,18 @@ export default function BrandPackages() {
             </div>
           </div>
 
-          {/* Right Images */}
-          <div className="grid grid-cols-3 gap-4">
-            <Image src="/images/Graphics/logo1.png" alt="Logo 1" width={200} height={200} />
-            {/* <Image src="/logo2.png" alt="Logo 2" width={160} height={100} />
-            <Image src="/logo3.png" alt="Logo 3" width={160} height={100} />
-            <Image src="/logo4.png" alt="Logo 4" width={160} height={100} />
-            <Image src="/logo5.png" alt="Logo 5" width={160} height={100} />
-            <Image src="/logo6.png" alt="Logo 6" width={160} height={100} /> */}
+          {/* Right Image Full Width */}
+          <div className="w-full lg:w-1/2">
+            <Image
+              src="/images/Graphics/logo1.png"
+              alt="Logo 1"
+              width={800}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
+
       </div>
     </section>
   );

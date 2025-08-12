@@ -4,6 +4,7 @@ import React from 'react';
 import CustomButton from "@/utils/CustomButton"; // Make sure path is correct
 import Image from "next/image";
 import Link from "next/link";
+import HighlightedText from '@/utils/HighlightedText';
 
 export default function AppDevelopmentServiceSection() {
   const services = [
@@ -53,7 +54,11 @@ export default function AppDevelopmentServiceSection() {
 
         {/* Main Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">
-          We build modern creative mobile experiences.
+          We build modern{" "}
+          <HighlightedText underlineColor="bg-orange-300">
+            creative mobile
+          </HighlightedText>{" "}
+          experiences.
         </h2>
 
         {/* Services Grid */}

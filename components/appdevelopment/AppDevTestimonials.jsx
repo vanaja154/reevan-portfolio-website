@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import CompanyLogoes from "@/utils/CompanyLogoes";
+import HighlightedText from "@/utils/HighlightedText";
 
 const testimonials = [
   {
@@ -52,10 +53,10 @@ export default function AppDevTestimonials() {
   const testimonial = testimonials[activeIndex];
 
   return (
-    <section className="bg-[#f7f7f7] text-center px-4 py-16 md:py-12">
-       <CompanyLogoes />
-      <h2 className="text-2xl md:text-4xl font-bold  md:py-12 text-gray-900">
-        Our <span>clients praise</span> us
+    <section className="bg-[#f7f7f7] text-center px-4 py-12 md:py-12">
+      <CompanyLogoes />
+      <h2 className="text-2xl md:text-4xl font-bold md:py-12 text-gray-900">
+        Our <HighlightedText>clients praise</HighlightedText> us
         for our great results
       </h2>
 
@@ -76,11 +77,10 @@ export default function AppDevTestimonials() {
         {testimonials.map((person, index) => (
           <button
             key={index}
-            className={`rounded-2xl border-4 ${
-              index === activeIndex
+            className={`rounded-2xl border-4 ${index === activeIndex
                 ? "border-[#ff5b2e]"
                 : "border-transparent"
-            } transition duration-300`}
+              } transition duration-300`}
             onClick={() => setActiveIndex(index)}
           >
             <Image

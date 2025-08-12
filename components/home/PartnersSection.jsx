@@ -1,5 +1,7 @@
 "use client";
 
+import HighlightedText from "@/utils/HighlightedText";
+
 export default function PartnersSection() {
   const partners = [
     { logo: "/images/brand-logo-11.png", name: "Shutter, USA" },
@@ -20,11 +22,7 @@ export default function PartnersSection() {
     <section className="py-16 bg-white text-center px-4">
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        We Are Partner With{" "}
-        <span className="relative inline-block">
-          <span className="relative z-10">Top Ventures</span>
-          <span className="absolute bottom-0 left-0 w-full h-1 bg-orange-300 z-0 rounded-sm"></span>
-        </span>
+        We Are Partner With <HighlightedText>Top Ventures</HighlightedText>
       </h2>
 
       {/* Sub text */}

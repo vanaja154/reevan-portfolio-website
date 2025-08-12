@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function DigitHeroSection() {
   return (
-    <section className="relative flex flex-col-reverse lg:mt-20 lg:flex-row items-center justify-between px-6 py-16 bg-white">
+    <section className="relative mt-10 flex flex-col-reverse lg:mt-20 lg:flex-row items-center justify-between px-6 py-16 bg-white">
       {/* Left content */}
       <div className="max-w-xl text-center lg:text-left space-y-6 z-10">
         <p className="text-red-500 font-medium">Full-time Dedicated Agency</p>

@@ -1,7 +1,7 @@
 "use client";
 export default function HeroSection() {
   return (
-    <section className="bg-[#ffeaea] py-12 md:py-20">
+    <section className="bg-[#ffeaea] mt-10 py-12 md:py-20">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
         
         {/* Left Text Content */}

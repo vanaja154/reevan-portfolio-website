@@ -1,10 +1,11 @@
 "use client";
 
+import HighlightedText from "@/utils/HighlightedText";
 import {
   Phone,
   Mail,
   MessageCircle,
-} from "lucide-react"; 
+} from "lucide-react";
 export default function ContactSection() {
   return (
     <section className="py-16 bg-[#fff1e6] text-gray-900">
@@ -13,11 +14,7 @@ export default function ContactSection() {
           <div className="lg:w-1/2">
             <p className="text-orange-500 font-semibold mb-2">INQUIRY</p>
             <h2 className="text-4xl font-bold mb-8">
-              Let’s Get in{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-[#1d1b6b]">Touch</span>
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-orange-300 z-0 rounded-sm"></span>
-              </span>
+              Let’s Get in <HighlightedText textColor="#1d1b6b" underlineColor="bg-orange-300">Touch</HighlightedText>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

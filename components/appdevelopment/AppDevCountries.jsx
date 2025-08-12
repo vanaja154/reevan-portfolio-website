@@ -1,5 +1,6 @@
 "use client";
 
+import HighlightedText from "@/utils/HighlightedText";
 import { 
   MapPin, 
   PhoneCall, 
@@ -47,8 +48,7 @@ export default function AppDevCountries() {
               <div className="flex items-center justify-center gap-2 mb-4">
                 {location.icon}
                 <h3 className="text-xl font-bold text-gray-800 relative inline-block">
-                  {location.name}
-                  <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-orange-500 rounded"></span>
+                 <HighlightedText> {location.name}</HighlightedText>
                 </h3>
               </div>
 
