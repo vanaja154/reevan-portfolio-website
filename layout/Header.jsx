@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
@@ -101,6 +101,20 @@ const navItems = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [menuStack, setMenuStack] = useState([]); // For nested mobile menu
+
+  const getCurrentMenu = () => {
+    if (menuStack.length === 0) return navItems;
+    return menuStack[menuStack.length - 1];
+  };
+
+  const goDeeper = (submenu) => {
+    setMenuStack((prev) => [...prev, submenu]);
+  };
+
+  const goBack = () => {
+    setMenuStack((prev) => prev.slice(0, -1));
+  };
 
   return (
     <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
@@ -119,8 +133,7 @@ export default function Header() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <span
-                className={`uppercase flex items-center cursor-pointer ${hoveredIndex === index ? "text-orange-600" : "text-black"
-                  }`}
+                className={`uppercase flex items-center cursor-pointer ${hoveredIndex === index ? "text-orange-600" : "text-black"}`}
               >
                 {item.title}
                 <span className="ml-1 text-orange-600 text-xl leading-none">·</span>
@@ -129,16 +142,18 @@ export default function Header() {
               {/* Dropdown */}
               {hoveredIndex === index && (
                 <div
-                  className={`absolute top-full ${item.title === "HOME" || item.title === "PAGES"
-                    ? "left-0 w-screen"
-                    : "left-0"}`}
+                  className={`absolute top-full ${item.title === "HOME"
+                    ? "left-[-500px] w-[1200px]"
+                    : item.title === "PAGES"
+                      ? "left-[-600px] w-[1200px]"
+                      : "left-0"
+                    }`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <DropdownMenu item={item} />
                 </div>
               )}
-
             </div>
           ))}
         </nav>
@@ -152,45 +167,90 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <button onClick={() => setMobileMenuOpen(true)}>
+            <Menu size={28} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
-          {navItems.map((item, index) => (
-            <div key={index}>
-              <div className="font-medium text-gray-900">{item.title}</div>
-              {item.links?.map((link, i) => (
-                <Link
-                  key={i}
-                  href={link.url}
-                  className="block pl-4 py-1 text-gray-700 hover:text-orange-600"
-                >
-                  {link.title}
-                </Link>
-              ))}
-              {item.sections?.map((sec, si) => (
-                <div key={si} className="pl-4">
-                  <div className="font-semibold text-orange-600">{sec.title}</div>
-                  {sec.links.map((link, li) => (
-                    <Link
-                      key={li}
-                      href={link.url}
-                      className="block pl-2 py-1 text-gray-700 hover:text-orange-600"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
-                </div>
-              ))}
-            </div>
-          ))}
+      {/* Mobile Sliding Menu */}
+      <div
+        className={`fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="p-4 border-b flex items-center bg-orange-600 justify-between">
+          {menuStack.length > 0 ? (
+            <button onClick={goBack} className="text-white">
+              <ChevronLeft size={24} />
+            </button>
+          ) : (
+            <span className="font-bold text-white text-2xl">Reevan Menu</span>
+          )}
+          <button onClick={() => { setMobileMenuOpen(false); setMenuStack([]); }} className="text-white">
+            <X size={24} />
+          </button>
         </div>
-      )}
+
+        <div className="p-4 space-y-2 max-h-[calc(100vh-64px)] overflow-y-auto">
+          {/* Main or Sub Menu Items */}
+          {Array.isArray(getCurrentMenu()) ? (
+            // Top-level menu
+            getCurrentMenu().map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-center justify-between py-2 border-b cursor-pointer"
+                onClick={() => {
+                  if (item.type === "mega") {
+                    goDeeper(item.sections);
+                  } else if (item.links && !item.url) {
+                    goDeeper(item.links);
+                  } else if (item.url) {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+              >
+                {item.url ? (
+                  <Link href={item.url} className="flex-1" onClick={() => setMobileMenuOpen(false)}>
+                    {item.title}
+                  </Link>
+                ) : (
+                  <span>{item.title}</span>
+                )}
+                {!item.url && <ChevronRight size={18} />}
+              </div>
+            ))
+          ) : Array.isArray(getCurrentMenu()[0]?.links) ? (
+            // Sections of mega menu
+            getCurrentMenu().map((sec, si) => (
+              <div
+                key={si}
+                className="flex items-center justify-between py-2 border-b cursor-pointer"
+                onClick={() => {
+                  if (sec.links && sec.links.length > 0) {
+                    goDeeper(sec.links);
+                  }
+                }}
+              >
+                <span>{sec.title}</span>
+                <ChevronRight size={18} />
+              </div>
+            ))
+          ) : (
+            // Final list of links
+            getCurrentMenu().map((link, li) => (
+              <Link
+                key={li}
+                href={link.url}
+                className="block py-2 border-b text-gray-700 hover:text-orange-600"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.title}
+              </Link>
+            ))
+          )}
+        </div>
+      </div>
     </header>
   );
 }
@@ -207,7 +267,7 @@ function DropdownMenu({ item }) {
               Request Quote →
             </button>
           </div>
-          <div className="col-span-6 flex gap-12">
+          <div className="col-span-6 flex gap-20">
             {item.sections.map((sec, idx) => (
               <div key={idx}>
                 <h4 className="font-semibold text-orange-600 border-b-2 border-orange-600 mb-4">
