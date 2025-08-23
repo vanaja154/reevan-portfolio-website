@@ -1,10 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const services = [
   {
     title: "Web Development",
     description: "We don't just build websites, we build websites that SELLS",
-    image: "/images/Design/webdesign.svg", // replace with your own images
+    image: "/images/Design/webdesign.svg",
   },
   {
     title: "UI/UX Design",
@@ -23,6 +26,29 @@ const services = [
   },
 ];
 
+// Animation variants
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2, 
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 export default function Services() {
   return (
     <section className="py-16 bg-white">
@@ -36,11 +62,18 @@ export default function Services() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-white rounded-xl shadow hover:shadow-lg p-6 text-center transition"
+            variants={card}
           >
             <div className="mb-4 flex justify-center">
               <div className="w-40 h-40 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
@@ -58,14 +91,14 @@ export default function Services() {
             </h3>
             <p className="text-gray-500 mb-4">{service.description}</p>
             <a
-              href="#"
+              href="/services"
               className="text-red-500 font-medium hover:underline inline-flex items-center gap-1"
             >
               Read More <span>→</span>
             </a>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

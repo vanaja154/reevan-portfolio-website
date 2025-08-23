@@ -1,3 +1,4 @@
+import Development from '@/components/Casestudydetails/Development'
 import ContactSection from '@/components/Pricing/ContactSection'
 import CreativeDesignService from '@/components/Services/CreativeDesignService'
 import DevelopmentService from '@/components/Services/DevelopmentService'
@@ -13,8 +14,10 @@ export default function Servicespage() {
      <OurServicesSection />
      <CreativeDesignService />
      <DevelopmentService />
+      {/* <Development /> */}
      <MarketingService />
-     <ProcessSteps />
+     {/* <ProcessSteps /> */}
+     <Development />
      <IndustriesWeServe />
      <ContactSection />
      </main>

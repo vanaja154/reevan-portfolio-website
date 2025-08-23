@@ -2,7 +2,7 @@ import React from 'react';
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-cover bg-center lg:mt-10 bg-no-repeat py-20"
+      className="relative bg-cover bg-center mt-10 lg:mt-10 bg-no-repeat py-20"
       style={{
         backgroundImage: "url('/images/portfolio/office.jpg')", 
       }}

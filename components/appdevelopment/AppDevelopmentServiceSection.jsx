@@ -1,47 +1,77 @@
 "use client";
 
-import React from 'react';
-import CustomButton from "@/utils/CustomButton"; // Make sure path is correct
+import React from "react";
+import CustomButton from "@/utils/CustomButton";
 import Image from "next/image";
 import Link from "next/link";
-import HighlightedText from '@/utils/HighlightedText';
+import HighlightedText from "@/utils/HighlightedText";
+import { motion } from "framer-motion";
+
+// Animation Variants
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2, // Delay between cards
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1], // Smooth easing
+    },
+  },
+};
 
 export default function AppDevelopmentServiceSection() {
   const services = [
     {
       id: 1,
       title: "Android Development",
-      description: "Our software house has been recognized by Google for outstanding Android application quality.",
+      description:
+        "Our software house has been recognized by Google for outstanding Android application quality.",
       icon: "/images/android.png",
     },
     {
       id: 2,
       title: "iOS Development",
-      description: "We create high-performance, secure, and scalable iOS apps using Swift and Objective-C.",
+      description:
+        "We create high-performance, secure, and scalable iOS apps using Swift and Objective-C.",
       icon: "/images/apple.png",
     },
     {
       id: 3,
       title: "Hybrid App Development",
-      description: "Build cross-platform apps with React Native & Flutter for faster delivery and lower cost.",
+      description:
+        "Build cross-platform apps with React Native & Flutter for faster delivery and lower cost.",
       icon: "/images/graphic.png",
     },
     {
       id: 4,
       title: "Wearable Development",
-      description: "Create seamless experiences for Apple Watch, Wear OS, and other wearable platforms.",
+      description:
+        "Create seamless experiences for Apple Watch, Wear OS, and other wearable platforms.",
       icon: "/images/physics.png",
     },
     {
       id: 5,
       title: "UI/UX Designing",
-      description: "User-centered design with wireframing, prototyping, and pixel-perfect UI implementation.",
+      description:
+        "User-centered design with wireframing, prototyping, and pixel-perfect UI implementation.",
       icon: "/images/graphic.png",
     },
     {
       id: 6,
       title: "Web App Development",
-      description: "Full-stack web applications with modern frameworks like React, Next.js, and Node.js.",
+      description:
+        "Full-stack web applications with modern frameworks like React, Next.js, and Node.js.",
       icon: "/images/physics.png",
     },
   ];
@@ -50,7 +80,9 @@ export default function AppDevelopmentServiceSection() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         {/* Tagline */}
-        <p className="text-sm font-bold text-orange-500 mb-2 text-center">REEVAN SERVICES</p>
+        <p className="text-sm font-bold text-orange-500 mb-2 text-center">
+          REEVAN SERVICES
+        </p>
 
         {/* Main Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">
@@ -61,12 +93,19 @@ export default function AppDevelopmentServiceSection() {
           experiences.
         </h2>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Animated Services Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {services.map((service) => (
-            <div
+            <motion.div
               key={service.id}
               className="bg-gray-50 p-6 rounded-xl hover:shadow-lg transition-shadow duration-300"
+              variants={card}
             >
               {/* Icon */}
               <div className="flex items-start justify-start mb-4">
@@ -95,9 +134,9 @@ export default function AppDevelopmentServiceSection() {
                   Read More →
                 </span>
               </Link>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

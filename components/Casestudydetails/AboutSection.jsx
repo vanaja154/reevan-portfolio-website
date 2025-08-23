@@ -1,5 +1,6 @@
 // components/AboutSection.jsx
 import Image from "next/image";
+import AppScreens from "../portfoliodetails/AppScreens";
 
 export default function AboutSection() {
   return (
@@ -43,7 +44,7 @@ export default function AboutSection() {
         </div>
 
         {/* Phones Section */}
-        <div className="flex justify-center gap-6 mt-12 flex-wrap">
+        {/* <div className="flex justify-center gap-6 mt-12 flex-wrap">
           <Image
             src="/images/casestudydetails/phone1.png" // replace with your phone image path
             alt="Phone screen"
@@ -79,7 +80,8 @@ export default function AboutSection() {
             height={400}
             className="rounded-lg"
           />
-        </div>
+        </div> */}
+        <AppScreens />
       </div>
     </section>
   );

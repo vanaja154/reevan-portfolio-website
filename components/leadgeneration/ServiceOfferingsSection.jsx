@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -40,21 +43,54 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Delay between cards
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export default function ServiceOfferingsSection() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-extrabold text-gray-900">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl font-extrabold text-gray-900"
+        >
           See what we can do for <span className="text-orange-500">you</span>
-        </h2>
-        <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
-        </p>
+        </motion.h2>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="mt-4 text-gray-500 max-w-2xl mx-auto"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          commodo ligula eget dolor.
+        </motion.p>
+
+        <motion.div
+          className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={cardVariants}
               className="bg-gray-50 rounded-2xl shadow-sm p-6 text-left hover:shadow-md transition"
             >
               <div className="inline-block p-3 bg-white rounded-xl shadow-md mb-4">
@@ -65,17 +101,19 @@ export default function ServiceOfferingsSection() {
                   height={48}
                 />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">{service.title}</h3>
+              <h3 className="text-lg font-bold text-gray-900">
+                {service.title}
+              </h3>
               <p className="mt-2 text-gray-600">{service.description}</p>
               <a
-                href="#"
+                href="/services"
                 className="mt-4 inline-flex items-center text-sm font-semibold text-gray-900 hover:underline"
               >
                 Read More <span className="ml-2">→</span>
               </a>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

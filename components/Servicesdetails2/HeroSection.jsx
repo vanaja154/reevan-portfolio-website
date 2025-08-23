@@ -3,13 +3,13 @@ import React from 'react';
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat py-20"
+      className="relative bg-cover mt-10 lg:mt-10 lg:mb-[-70px] bg-center bg-no-repeat py-20"
       style={{
-        backgroundImage: "url('/images/team-bg.png')", // Place your image in public/images/
+        backgroundImage: "url('/images/portfolio/office.jpg')", 
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white bg-opacity-70"></div>
+      <div className="absolute inset-0 bg-[#fff] opacity-60"></div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">

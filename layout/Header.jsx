@@ -52,7 +52,9 @@ const navItems = [
     ctaTitle: "Creative, Premium & Scalable Solutions For App and Web Development",
     links: [
       { title: "About Us", url: "/about" },
+      { title: "About Us-2", url: "/about2" },
       { title: "Career", url: "/career" },
+      { title: "Career-2", url: "/career2" },
       { title: "Case Study", url: "/casestudy" },
       { title: "Case Study Details", url: "/casestudydetails" },
       { title: "Our Core Values", url: "/ourcore" },
@@ -63,9 +65,9 @@ const navItems = [
       { title: "Pricing", url: "/pricing" },
       { title: "Pricing-2", url: "/pricing2" },
       { title: "Service", url: "/services" },
-      { title: "Service-2", url: "/service2" },
-      { title: "Service Details", url: "/servicedetails" },
-      { title: "Service Details-2", url: "/servicedetails2" },
+      { title: "Service-2", url: "/services2" },
+      { title: "Service Details", url: "/servicesdetails" },
+      { title: "Service Details-2", url: "/servicesdetails2" },
       { title: "Why Choose Us", url: "/why-choose-us" }
     ]
   },
@@ -75,7 +77,7 @@ const navItems = [
     links: [
       { title: "Portfolio Modern", url: "/portfolio-modern" },
       { title: "Portfolio 3 Grid", url: "/portfolio-2" },
-      { title: "Portfolio 4 Grid", url: "/portfolio-2" },
+      { title: "Portfolio 4 Grid", url: "/portfolio-modern" },
       { title: "Portfolio Details", url: "/portfolio-details" },
       { title: "Portfolio Details - 2", url: "/portfolio-details-2" }
     ]
@@ -160,9 +162,11 @@ export default function Header() {
 
         {/* Request Quote */}
         <div className="hidden md:block">
-          <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-full hover:bg-orange-50">
-            Request Quote
-          </button>
+          <Link href="/contact">
+            <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-full hover:bg-orange-50 cursor-pointer">
+              Request Quote
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -175,9 +179,8 @@ export default function Header() {
 
       {/* Mobile Sliding Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="p-4 border-b flex items-center bg-orange-600 justify-between">
           {menuStack.length > 0 ? (
@@ -263,9 +266,11 @@ function DropdownMenu({ item }) {
           <div className="col-span-2">
             <p className="text-sm text-gray-500">Need a Website?</p>
             <h3 className="text-2xl font-extrabold">{item.ctaTitle}</h3>
-            <button className="mt-6 px-6 py-2 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-50">
-              Request Quote →
-            </button>
+            <Link href="/contact">
+              <button className="mt-6 px-6 py-2 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-50 cursor-pointer">
+                Request Quote →
+              </button>
+            </Link>
           </div>
           <div className="col-span-6 flex gap-20">
             {item.sections.map((sec, idx) => (
@@ -304,9 +309,11 @@ function DropdownMenu({ item }) {
           <div className="col-span-2">
             <p className="text-sm text-gray-500">Need a Website?</p>
             <h3 className="text-2xl font-extrabold">{item.ctaTitle}</h3>
-            <button className="mt-6 px-6 py-2 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-50">
-              Request Quote →
-            </button>
+            <Link href="/contact">
+              <button className="mt-6 px-6 py-2 border border-orange-600 text-orange-600 rounded-full hover:bg-orange-50 cursor-pointer">
+                Request Quote →
+              </button>
+            </Link>
           </div>
           <div className="col-span-6 grid grid-cols-4 gap-6">
             {cols.map((col, ci) => (
@@ -353,10 +360,10 @@ function BottomBar() {
     { text: "Why Choose Us" }
   ];
   return (
-    <div className="w-full bg-orange-50 px-8 py-4 flex max-w-7xl mx-auto justify-between text-gray-900">
+    <div className="w-full bg-orange-50 px-8 py-4 flex max-w-5xl mx-auto justify-between text-gray-900">
       {contacts.map((c, i) => (
         <div key={i} className="flex items-center space-x-2">
-          <div className="rounded-full bg-white p-2 shadow-md"></div>
+          {/* <div className="rounded-full bg-white p-2 shadow-md"></div> */}
           <span>{c.text}</span>
         </div>
       ))}

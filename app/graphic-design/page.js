@@ -1,3 +1,4 @@
+import ContactSection from '@/components/Contact2/ContactSection'
 import BrandPackages from '@/components/graphicdesign/BrandPackages'
 import ContactForm from '@/components/graphicdesign/ContactSupport'
 // import CreativeSection from '@/components/graphicdesign/CreativeSection'
@@ -20,7 +21,8 @@ export default function page() {
       {/* <PortfolioShowcase /> */}
       <Works />
       <DesignProcess />
-      <ContactForm />
+      {/* <ContactForm /> */}
+       <ContactSection />
     </main>
   )
 }

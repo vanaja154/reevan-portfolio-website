@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+
 
 export default function BlogFullPage() {
   return (
@@ -139,9 +141,11 @@ export default function BlogFullPage() {
 
         {/* Back to Blogs Button */}
         <div className="text-center">
-          <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
-            Back to Blogs
-          </button>
+          <Link href="/blog">
+            <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
+              Back to Blogs
+            </button>
+          </Link>
         </div>
       </div>
     </section>

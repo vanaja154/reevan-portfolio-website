@@ -1,7 +1,31 @@
 "use client";
+
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2, 
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const blogPosts = [
   {
@@ -37,20 +61,31 @@ export default function AppDevBlogSection() {
   return (
     <section className="bg-[#ffe3d9] py-20">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <p className="text-[#ff5b2e] font-medium uppercase mb-2">Latest From Blog</p>
+        <p className="text-[#ff5b2e] font-medium uppercase mb-2">
+          Latest From Blog
+        </p>
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#333] mb-3">
-          Read stories, tips, and our opinions on <span className="text-[#1e1e1e]">everything</span>
+          Read stories, tips, and our opinions on{" "}
+          <span className="text-[#1e1e1e]">everything</span>
         </h2>
         <p className="text-[#555] max-w-2xl mx-auto mb-10">
-          Get updated with the latest trends in technology and know how your business can benefit from these technologies.
+          Get updated with the latest trends in technology and know how your
+          business can benefit from these technologies.
         </p>
 
-        {/* Blog Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Animated Blog Cards */}
+        <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {blogPosts.map((post) => (
-            <div
+            <motion.div
               key={post.id}
               className="bg-white rounded-xl shadow-md overflow-hidden text-left transition hover:shadow-lg"
+              variants={card}
             >
               <Image
                 src={post.image}
@@ -70,12 +105,14 @@ export default function AppDevBlogSection() {
                     {post.readTime}
                   </span>
                 </div>
-                <h3 className="font-bold text-lg text-[#1e1e1e] mb-2">{post.title}</h3>
+                <h3 className="font-bold text-lg text-[#1e1e1e] mb-2">
+                  {post.title}
+                </h3>
                 <p className="text-sm text-gray-600">{post.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

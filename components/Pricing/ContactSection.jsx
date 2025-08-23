@@ -12,13 +12,13 @@ export default function ContactSection() {
             CONTACT US
           </p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
-            Have a <span className="bg-orange-200 px-1">project</span> in mind? Let's get to chat.
+            Have a <span className="">project</span> in mind? Let's get to chat.
           </h2>
 
           {/* Buttons */}
           <div className="flex gap-5 mt-8">
             <a
-              href="#"
+              href="/contact"
               className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition-all duration-200"
             >
               <FaPhoneAlt /> Contact

@@ -3,49 +3,49 @@ import Image from "next/image";
 
 const benefits = [
   {
-    icon: "/icons/work-life-balance.png",
+    icon: "/images/peace-of-mind.png",
     title: "Work-Life Balance",
     description:
       "Enjoy flexible schedules that help you maintain a healthy balance between your career and personal life.",
   },
   {
-    icon: "/icons/health-support.png",
+    icon: "/images/peace-of-mind.png",
     title: "Comprehensive Health Support",
     description:
       "We offer extensive medical coverage to keep you and your family healthy and stress-free.",
   },
   {
-    icon: "/icons/learning-sessions.png",
+    icon: "/images/peace-of-mind.png",
     title: "Skill Development Sessions",
     description:
       "Attend regular workshops designed to boost your skills and keep you ahead in your field.",
   },
   {
-    icon: "/icons/tech-tools.png",
+    icon: "/images/peace-of-mind.png",
     title: "Modern Tech Tools",
     description:
       "Get the latest devices and software you need to do your best work without limitations.",
   },
   {
-    icon: "/icons/resources.png",
+    icon: "/images/peace-of-mind.png",
     title: "Access to Premium Resources",
     description:
       "We provide paid subscriptions to top learning platforms, books, and online courses.",
   },
   {
-    icon: "/icons/office-setup.png",
+    icon: "/images/peace-of-mind.png",
     title: "Ergonomic Work Environment",
     description:
       "Enjoy a comfortable, well-designed workspace with world-class infrastructure.",
   },
   {
-    icon: "/icons/networking.png",
+    icon: "/images/peace-of-mind.png",
     title: "Industry Networking",
     description:
       "Join meetups and events where you can connect with professionals from various industries.",
   },
   {
-    icon: "/icons/guidance.png",
+    icon: "/images/peace-of-mind.png",
     title: "Expert Mentorship",
     description:
       "Receive guidance from experienced mentors to accelerate your career growth.",
@@ -67,7 +67,9 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-md p-6 text-left hover:shadow-lg transition-shadow duration-300"
+              tabIndex={0} // ✅ makes the div focusable on mobile & desktop
+              className="bg-white rounded-xl shadow-md p-6 text-left relative overflow-hidden group 
+                        hover:shadow-lg focus-within:shadow-lg active:shadow-lg transition-all duration-300"
             >
               <div className="mb-4">
                 <Image
@@ -81,6 +83,13 @@ export default function BenefitsSection() {
                 {benefit.title}
               </h3>
               <p className="text-gray-600 text-sm">{benefit.description}</p>
+
+              {/* Animated Bottom Line (works on hover, focus, and tap/active) */}
+              <span
+                className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-500 
+                transform scale-x-0 origin-left transition-transform duration-500 
+                group-hover:scale-x-100 group-focus-within:scale-x-100 group-active:scale-x-100"
+              ></span>
             </div>
           ))}
         </div>

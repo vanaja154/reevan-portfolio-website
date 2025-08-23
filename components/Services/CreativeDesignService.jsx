@@ -1,6 +1,8 @@
 // components/CreativeDesignService.jsx
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function CreativeDesignService() {
   const services = [
@@ -8,7 +10,7 @@ export default function CreativeDesignService() {
       title: "Websites Design",
       description:
         "We create comprehensive and sophisticated yet simple to use interfaces for your web app.",
-      icon: "/images/Services/web.svg", // Place your image in public/images/icons
+      icon: "/images/Services/web.svg",
     },
     {
       title: "Mobile Apps Design",
@@ -39,9 +41,11 @@ export default function CreativeDesignService() {
             We make the collaboration of people and interface more intensive and
             exciting.
           </h2>
-          <button className="mt-8 px-6 py-3 border border-orange-500 text-orange-500 rounded-full flex items-center gap-2 hover:bg-orange-50 transition">
-            Need a Designer <ArrowRight size={18} />
-          </button>
+          <Link href="/contact" passHref>
+            <button className="mt-8 px-6 py-3 border border-orange-500 text-orange-500 rounded-full flex items-center gap-2 hover:bg-orange-50 transition">
+              Need a Designer <ArrowRight size={18} />
+            </button>
+          </Link>
         </div>
 
         {/* Right Side */}

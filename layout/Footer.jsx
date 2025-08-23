@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="bg-[#30303c] text-gray-300 py-10">
       <div className="container mx-auto px-4">
         {/* Top Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo + Info */}
           <div>
             <img src="/images/footer-logo.png" alt="Logo" className="h-8 mb-4" />
@@ -70,12 +70,12 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-[15px]">
-              <li><a href="#" className="hover:text-orange-500">About Us</a></li>
-              <li><a href="#" className="hover:text-orange-500">Portfolio</a></li>
-              <li><a href="#" className="hover:text-orange-500">Blog</a></li>
-              <li><a href="#" className="hover:text-orange-500">Contact Us</a></li>
-              <li><a href="#" className="hover:text-orange-500">Faqs</a></li>
-              <li><a href="#" className="hover:text-orange-500">Privacy & Policy</a></li>
+              <li><a href="/about" className="hover:text-orange-500">About Us</a></li>
+              <li><a href="/portfolio-2" className="hover:text-orange-500">Portfolio</a></li>
+              <li><a href="/blog" className="hover:text-orange-500">Blog</a></li>
+              <li><a href="/contact" className="hover:text-orange-500">Contact Us</a></li>
+              <li><a href="/portfolio-details-2" className="hover:text-orange-500">Faqs</a></li>
+              {/* <li><a href="#" className="hover:text-orange-500">Privacy & Policy</a></li> */}
             </ul>
           </div>
 
@@ -83,17 +83,17 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-[15px]">
-              <li><a href="#" className="hover:text-orange-500">Hire Dedicated Developers</a></li>
-              <li><a href="#" className="hover:text-orange-500">Web App Development</a></li>
-              <li><a href="#" className="hover:text-orange-500">Mobile App Development</a></li>
-              <li><a href="#" className="hover:text-orange-500">Search Engine Optimization</a></li>
-              <li><a href="#" className="hover:text-orange-500">Pay-Per-Click</a></li>
-              <li><a href="#" className="hover:text-orange-500">Social Media Marketing</a></li>
+              {/* <li><a href="#" className="hover:text-orange-500">Hire Dedicated Developers</a></li> */}
+              <li><a href="/app-development" className="hover:text-orange-500">Web App Development</a></li>
+              <li><a href="/web-design" className="hover:text-orange-500">Web Desing</a></li>
+              <li><a href="/lead-generation" className="hover:text-orange-500">Lead Generation</a></li>
+              <li><a href="/servicesdetails2" className="hover:text-orange-500">Mobile App Development</a></li>
+              {/* <li><a href="#" className="hover:text-orange-500">Social Media Marketing</a></li> */}
             </ul>
           </div>
 
           {/* Industries */}
-          <div>
+          {/* <div>
             <h3 className="text-white font-semibold mb-4">Industries</h3>
             <ul className="space-y-2 text-[15px]">
               <li><a href="#" className="hover:text-orange-500">Healthcare</a></li>
@@ -103,7 +103,7 @@ export default function Footer() {
               <li><a href="#" className="hover:text-orange-500">Oil & Gas</a></li>
               <li><a href="#" className="hover:text-orange-500">Music & Video</a></li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Row */}

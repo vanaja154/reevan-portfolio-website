@@ -1,3 +1,4 @@
+import Development from '@/components/Casestudydetails/Development'
 import ContactSection from '@/components/Pricing/ContactSection'
 import IndustriesWeServe from '@/components/Services/IndustriesWeServe'
 import ProcessSteps from '@/components/Services/ProcessSteps'
@@ -14,7 +15,8 @@ export default function Servicesdetailspage() {
      <ServiceSection />
      <KeyExpertise />
      <HireDevelopersSection />
-     <ProcessSteps />
+     {/* <ProcessSteps /> */}
+     <Development />
      <IndustriesWeServe />
      <ContactSection />
      </main>

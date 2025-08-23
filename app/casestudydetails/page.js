@@ -1,5 +1,6 @@
 import AboutSection from '@/components/Casestudydetails/AboutSection'
-import Cards from '@/components/Casestudydetails/Cards'
+import CardsDetails from '@/components/Casestudydetails/CardsDetails'
+import Cards from '@/components/Casestudydetails/CardsDetails'
 import Development from '@/components/Casestudydetails/Development'
 import Herosection from '@/components/Casestudydetails/Herosection'
 import MarketingCaseStudy from '@/components/Casestudydetails/MarketingCaseStudy'
@@ -13,12 +14,14 @@ export default function Casestudydetailspage() {
      <main>
         <Herosection />
         <AboutSection />
-        <MarketingCaseStudy />
+        <MarketingCaseStudy /> 
         <Development />
         <ProjectChallenges />
         <StatsSection />
         <Result />
-        <Cards />
+        {/* <Cards /> */}
+        <CardsDetails/>
+        
      </main>
   )
 }

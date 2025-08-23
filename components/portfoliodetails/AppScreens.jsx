@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import AppScreensSwipe from "@/utils/AppScreensSwipe";
 
 export default function AppScreens() {
   const images = [
@@ -28,7 +29,7 @@ export default function AppScreens() {
         </p>
 
         {/* Carousel */}
-        <Swiper
+        {/* <Swiper
           modules={[Autoplay, Pagination]}
           autoplay={{ delay: 2000, reverseDirection: true, disableOnInteraction: false }}
           pagination={{ clickable: true }}
@@ -52,7 +53,8 @@ export default function AppScreens() {
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
+        <AppScreensSwipe />
       </div>
     </section>
   );

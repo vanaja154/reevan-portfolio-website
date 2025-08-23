@@ -2,7 +2,7 @@
 
 export default function BlogHeaderSection() {
   return (
-    <section className="bg-[#fdf5f4] py-16 lg:mt-16">
+    <section className="bg-[#fdf5f4] py-16 mt-10 lg:mt-16">
       <div className="max-w-4xl mx-auto px-4 text-center">
         {/* Breadcrumb */}
         <p className="text-base text-gray-600 mb-4">

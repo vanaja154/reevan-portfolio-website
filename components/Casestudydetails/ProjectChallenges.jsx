@@ -62,7 +62,7 @@ export default function ProjectChallenges() {
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-bold text-gray-900 mb-2">
-               PPC campaigns reach click-happy customers with products.
+                PPC campaigns reach click-happy customers with products.
               </h3>
               <p className="text-gray-600">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -91,14 +91,18 @@ export default function ProjectChallenges() {
         </div>
 
         {/* Image Section */}
-        <div className="overflow-hidden rounded-xl">
-         <Image
-           src="/images/casestudydetails/face.jpg"
-           alt="Challenges"
-           width={800} 
-           height={500} 
-      />
+        <div className="flex justify-center">
+          <div className="overflow-hidden rounded-xl shadow-lg">
+            <Image
+              src="/images/casestudydetails/face.jpg"
+              alt="Challenges"
+              width={800}
+              height={500}
+              className="w-full h-auto"
+            />
+          </div>
         </div>
+
       </div>
     </section>
   );

@@ -56,13 +56,13 @@ export default function ClientSolutions() {
           title="← Previous Project"
           containerStyles="px-6 py-3 border border-orange-400 rounded-full text-orange-500 hover:bg-orange-50 transition"
           textStyles="font-medium"
-          href="/previous-project"
+          href="#"
         />
         <CustomButton
           title="Next Project →"
           containerStyles="px-6 py-3 border border-orange-400 rounded-full text-orange-500 hover:bg-orange-50 transition"
           textStyles="font-medium"
-          href="/next-project"
+          href="#"
         />
       </div>
     </section>

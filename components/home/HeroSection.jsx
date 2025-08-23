@@ -1,41 +1,109 @@
 "use client";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.18, delayChildren: 0.1 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const cardsContainer = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardItem = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function HeroSection() {
   return (
     <section className="bg-[#ffeaea] mt-10 py-12 md:py-20">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
-        
-        {/* Left Text Content */}
-        <div className="md:w-1/3 text-center md:text-left">
-          <span className="inline-block bg-white text-orange-500 px-4 py-1 rounded-full text-sm mb-4">
+        {/* Left Text Content (line-by-line) */}
+        <motion.div
+          className="md:w-1/3 text-center md:text-left"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.35 }}
+        >
+          <motion.span
+            variants={item}
+            className="inline-block bg-white text-orange-500 px-4 py-1 rounded-full text-sm mb-4"
+          >
             Hello, I&apos;m
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-            Emily Olivia
-          </h1>
-          <h2 className="text-lg font-semibold text-gray-800 mb-4">
-            UI/UX and Graphic Designer
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Senior Graphic and UI/UX Designer. I help global brands with digital products on web, mobile, and connected platforms.
-          </p>
-          <button className="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
-            Hire Me →
-          </button>
-        </div>
+          </motion.span>
 
-        {/* Center Image */}
-        <div className="md:w-1/3 flex justify-center">
+          <motion.h1
+            variants={item}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-2"
+          >
+            Emily Olivia
+          </motion.h1>
+
+          <motion.h2
+            variants={item}
+            className="text-lg font-semibold text-gray-800 mb-4"
+          >
+            UI/UX and Graphic Designer
+          </motion.h2>
+
+          <motion.p variants={item} className="text-gray-600 mb-6">
+            Senior Graphic and UI/UX Designer. I help global brands with digital
+            products on web, mobile, and connected platforms.
+          </motion.p>
+
+          <Link href="/contact" passHref>
+            <motion.button
+              variants={item}
+              className="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition"
+            >
+              Hire Me →
+            </motion.button>
+          </Link>
+        </motion.div>
+
+        {/* Center Image (fade + subtle scale) */}
+        <motion.div
+          className="md:w-1/3 flex justify-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <img
             src="images/freelancer.png"
             alt="Emily Olivia"
             className="max-w-full h-auto"
           />
-        </div>
+        </motion.div>
 
-        {/* Right Info Cards */}
-        <div className="md:w-1/3 space-y-20  pl-8">
+        {/* Right Info Cards (staggered) */}
+        <motion.div
+          className="md:w-1/3 space-y-20 pl-8"
+          variants={cardsContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {/* Card 1 */}
-          <div className="flex items-center gap-6">
+          <motion.div variants={cardItem} className="flex items-center gap-6">
             <div className="bg-white rounded-full p-4 shadow-md">
               <img
                 src="/images/briefcase.png"
@@ -51,10 +119,10 @@ export default function HeroSection() {
                 Graphic Design
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2 */}
-          <div className="flex items-center gap-6">
+          <motion.div variants={cardItem} className="flex items-center gap-6">
             <div className="bg-white rounded-full p-4 shadow-md">
               <img
                 src="/images/websites.png"
@@ -69,10 +137,10 @@ export default function HeroSection() {
                 to World Wide
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3 */}
-          <div className="flex items-center gap-6">
+          <motion.div variants={cardItem} className="flex items-center gap-6">
             <div className="bg-white rounded-full p-4 shadow-md">
               <img
                 src="/images/happyclients.png"
@@ -87,9 +155,8 @@ export default function HeroSection() {
                 On-time Delivery
               </p>
             </div>
-          </div>
-        </div>
-
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -5,14 +5,14 @@ export default function OurTeam() {
     <section
       className="relative bg-cover bg-center bg-no-repeat py-20"
       style={{
-        backgroundImage: "url('/images/team-bg.png')", // Place your image in public/images/
+        backgroundImage: "url('/images/portfolio/office.jpg')", 
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white bg-opacity-70"></div>
+      <div className="absolute inset-0 bg-[#fff] opacity-60"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
+      <div className="relative z-10 mt-16 lg:mt-16 flex flex-col items-center justify-center text-center px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Our Team
         </h2>

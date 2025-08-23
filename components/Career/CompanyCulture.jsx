@@ -1,4 +1,3 @@
-// components/CompanyCulture.jsx
 import Image from "next/image";
 
 export default function CompanyCulture() {
@@ -7,7 +6,7 @@ export default function CompanyCulture() {
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Title */}
         <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-          Life at Reevan 
+          Life at Reevan
         </h2>
 
         {/* Description */}
@@ -20,85 +19,102 @@ export default function CompanyCulture() {
 
         {/* Image Grid */}
         <div className="grid grid-cols-1 lg:ml-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div className="rounded-lg overflow-hidden">
+          {/* Image 1 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
               src="/images/office-inner1.jpg"
               alt="Team fun at the office"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 2 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life2.jpg"
+              src="/images/office-inner1.jpg"
               alt="Office celebration"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 3 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life3.jpg"
+              src="/images/office-inner1.jpg"
               alt="Brainstorming session"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 4 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life4.jpg"
+              src="/images/office-inner1.jpg"
               alt="Team collaboration"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 5 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life5.jpg"
+              src="/images/office-inner1.jpg"
               alt="Friendly coworkers"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 6 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life6.jpg"
+              src="/images/office-inner1.jpg"
               alt="Office workspace"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 7 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life7.jpg"
+              src="/images/office-inner1.jpg"
               alt="Holiday party"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 8 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life8.jpg"
+              src="/images/office-inner1.jpg"
               alt="Team lunch"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
-          <div className="rounded-lg overflow-hidden">
+
+          {/* Image 9 */}
+          <div className="rounded-lg overflow-hidden group">
             <Image
-              src="/images/life9.jpg"
+              src="/images/office-inner1.jpg"
               alt="Year-end celebration"
               width={600}
               height={400}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
           </div>
         </div>

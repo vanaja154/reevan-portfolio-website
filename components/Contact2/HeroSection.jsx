@@ -6,7 +6,7 @@ import { FaHeadphones } from "react-icons/fa";
 export default function HeroSection() {
   return (
     <section className="bg-[#4b295b]  py-16">
-      <div className="max-w-screen-lg mx-auto lg:mt-10 flex flex-col md:flex-row items-center md:items-stretch px-6">
+      <div className="max-w-screen-lg mx-auto mt-10 lg:mt-10 flex flex-col md:flex-row items-center md:items-stretch px-6">
 
         {/* Left Side - Text */}
         <div className="flex-1 text-white flex flex-col justify-center">

@@ -11,7 +11,7 @@ export default function OfficeLocations() {
         <div className="text-center mb-12">
           <p className="text-orange-500 font-semibold uppercase tracking-widest">Find Us</p>
           <h2 className="text-4xl font-extrabold text-gray-900">
-            Our <span className="border-b-4 border-orange-300">Office Locations</span>
+            Our <span className="">Office Locations</span>
           </h2>
         </div>
 

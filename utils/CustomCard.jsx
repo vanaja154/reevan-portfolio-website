@@ -1,4 +1,6 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
 
 export default function CustomCard({
   title,
@@ -9,48 +11,70 @@ export default function CustomCard({
   authorImage,
   mainImage,
   imagePosition = "left",
-  customElement
+  customElement,
 }) {
   const isImageLeft = imagePosition === "left";
 
+  // Parent container variant
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  // Individual item animation
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  };
+
   return (
-    <div
+    <motion.div
       className={`flex flex-col md:flex-row items-center gap-8 ${
         isImageLeft ? "" : "md:flex-row-reverse"
       }`}
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
     >
       {/* Image Section */}
-      <div className="md:w-1/2 w-full overflow-hidden rounded-xl shadow-lg ">
+      <motion.div
+        className="md:w-1/2 w-full overflow-hidden rounded-xl shadow-lg"
+        variants={fadeUp}
+      >
         <img
           src={mainImage}
           alt={title}
           className="w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105"
         />
-      </div>
+      </motion.div>
 
       {/* Content Section */}
-      <div className="md:w-1/2 w-full">
+      <motion.div
+        className="md:w-1/2 w-full"
+        variants={fadeUp}
+      >
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 text-sm text-orange-500 font-medium">
+        <motion.div className="flex flex-wrap gap-2 text-sm text-orange-500 font-medium" variants={fadeUp}>
           {tags.map((tag, idx) => (
             <span key={idx}>{tag}</span>
           ))}
-        </div>
+        </motion.div>
 
         {/* Title */}
-        <h3 className="text-2xl md:text-3xl font-bold mt-2">{title}</h3>
+        <motion.h3 className="text-2xl md:text-3xl font-bold mt-2" variants={fadeUp}>
+          {title}
+        </motion.h3>
 
         {/* Subtitle or Custom Element */}
-        <div className="mt-3">
-          {customElement ? (
-            customElement
-          ) : (
-            <p className="text-gray-500">{subtitle}</p>
-          )}
-        </div>
+        <motion.div className="mt-3" variants={fadeUp}>
+          {customElement ? customElement : <p className="text-gray-500">{subtitle}</p>}
+        </motion.div>
 
         {/* Author */}
-        <div className="flex items-center gap-3 mt-6">
+        <motion.div className="flex items-center gap-3 mt-6" variants={fadeUp}>
           <img
             src={authorImage}
             alt={authorName}
@@ -60,8 +84,8 @@ export default function CustomCard({
             <p className="font-semibold">{authorName}</p>
             <p className="text-sm text-gray-500">{authorCompany}</p>
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

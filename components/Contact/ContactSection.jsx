@@ -4,7 +4,7 @@ import { FaHeadphonesAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 export default function ContactSection() {
   return (
-    <section className="bg-[#fff5f3] py-16 lg:mt-18">
+    <section className="bg-[#fff5f3] py-16 mt-10 lg:mt-18">
       <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-12">
         
         {/* Left Side - Heading & Text */}

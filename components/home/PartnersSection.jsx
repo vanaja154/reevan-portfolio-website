@@ -1,6 +1,7 @@
 "use client";
 
 import HighlightedText from "@/utils/HighlightedText";
+import { motion } from "framer-motion";
 
 export default function PartnersSection() {
   const partners = [
@@ -18,6 +19,19 @@ export default function PartnersSection() {
     { logo: "/images/brand-logo-12.png", name: "Opera Tours, USA" },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section className="py-16 bg-white text-center px-4">
       {/* Heading */}
@@ -31,12 +45,19 @@ export default function PartnersSection() {
         Aenean massa. Cum sociis natoque penatibus et magnis.
       </p>
 
-      {/* Logos Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+      {/* Logos Grid with Framer Motion */}
+      <motion.div
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
         {partners.map((partner, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
+            variants={itemVariants}
           >
             <img
               src={partner.logo}
@@ -44,9 +65,9 @@ export default function PartnersSection() {
               className="h-16 object-contain mb-2"
             />
             <p className="text-gray-600 text-sm">{partner.name}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
