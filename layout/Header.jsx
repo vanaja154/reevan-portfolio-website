@@ -368,7 +368,7 @@ function BottomBar() {
         {contacts.map((c, i) => (
           <div key={i} className="flex items-center space-x-2 text-gray-800">
             {c.icon}
-            {/* <span className="text-sm font-medium">{c.text}</span> */}
+            <span className="text-sm font-medium">{c.text}</span>
           </div>
         ))}
       </div>
