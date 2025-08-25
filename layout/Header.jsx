@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Menu, X, ChevronRight, ChevronLeft } from "lucide-react";
+import { Mail, Phone, Smartphone, MessageSquare, HelpCircle } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
@@ -351,22 +352,26 @@ function DropdownMenu({ item }) {
   }
 }
 
+
 function BottomBar() {
   const contacts = [
-    { text: "reevan@abcd.com" },
-    { text: "+91 123 456 7890" },
-    { text: "+91 123 456 7890" },
-    { text: "Reevan.Skype" },
-    { text: "Why Choose Us" }
+    { icon: <Mail className="w-5 h-5 text-orange-600" />, text: "reevan@abcd.com" },
+    { icon: <Phone className="w-5 h-5 text-orange-600" />, text: "+91 123 456 7890" },
+    { icon: <Smartphone className="w-5 h-5 text-orange-600" />, text: "+91 123 456 7890" },
+    { icon: <MessageSquare  className="w-5 h-5 text-orange-600" />, text: "Reevan.Skype" },
+    { icon: <HelpCircle className="w-5 h-5 text-orange-600" />, text: "Why Choose Us" }
   ];
+
   return (
-    <div className="w-full bg-orange-50 px-8 py-4 flex max-w-5xl mx-auto justify-between text-gray-900">
-      {contacts.map((c, i) => (
-        <div key={i} className="flex items-center space-x-2">
-          {/* <div className="rounded-full bg-white p-2 shadow-md"></div> */}
-          <span>{c.text}</span>
-        </div>
-      ))}
+    <div className="w-full border-t border-red-300 px-6 py-4 bg-white">
+      <div className="max-w-6xl mx-auto flex flex-wrap justify-between gap-4">
+        {contacts.map((c, i) => (
+          <div key={i} className="flex items-center space-x-2 text-gray-800">
+            {c.icon}
+            <span className="text-sm font-medium">{c.text}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
